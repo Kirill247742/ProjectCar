@@ -9,10 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <style>td{text-transform:uppercase;}</style>
-    <link href="bootstrap.min.css" rel="stylesheet">
-    <link href="grid.css" rel="stylesheet">
-    <link href="bootstrap.min.css" rel="stylesheet">
-    <link href="starter-template.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/starter-template.css" rel="stylesheet">
 
 </head>
 
