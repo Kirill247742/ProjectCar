@@ -9,7 +9,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <style>td{text-transform:uppercase;}</style>
-    <title>Grid Template for Bootstrap</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/starter-template.css" rel="stylesheet">
 
@@ -49,31 +48,18 @@
 <br></br><br></br>
 <div class="container">
 
-    <h2 class="sub-header">DETAILS</h2>
+    <h2 class="sub-header">LOCATIONS LIST</h2>
     <div class="table-responsive">
         <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>NAME</th>
-                <th>GENDER</th>
-                <th>AGE</th>
-                <th>EMAIL</th>
-                <th>TELNUMBER</th>
-                <th>LOCATION</th>
-            </tr>
-            </thead>
             <tbody>
-            <tr>
-                <td>${seller.name}</td>
-                <td>${seller.gender}</td>
-                <td>${seller.age}</td>
-                <td>${seller.email}</td>
-                <td>${seller.telnumber}</td>
-                <td>${location.name}</td>
-                <td><p><a href='<c:url value="/detailcar?id=${car.id}" />'>BACK</a></p></td>
-            </tr>
+            <c:forEach var="location" items="${locations}">
+                <tr>
+                    <td>${location.name}</td>
+                </tr>
+            </c:forEach>
             </tbody>
         </table>
     </div>
+
 </div>
 </body>

@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
-@WebServlet("/detailsell")
+
 public class DetailSellServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

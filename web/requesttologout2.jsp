@@ -1,21 +1,19 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <style>td{text-transform:uppercase;}</style>
-    <title>Grid Template for Bootstrap</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/starter-template.css" rel="stylesheet">
 
 </head>
 
 <body>
+
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
@@ -46,34 +44,18 @@
     </div>
 </div>
 
-<br></br><br></br>
 <div class="container">
-
-    <h2 class="sub-header">DETAILS</h2>
-    <div class="table-responsive">
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>NAME</th>
-                <th>GENDER</th>
-                <th>AGE</th>
-                <th>EMAIL</th>
-                <th>TELNUMBER</th>
-                <th>LOCATION</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>${seller.name}</td>
-                <td>${seller.gender}</td>
-                <td>${seller.age}</td>
-                <td>${seller.email}</td>
-                <td>${seller.telnumber}</td>
-                <td>${location.name}</td>
-                <td><p><a href='<c:url value="/detailcar?id=${car.id}" />'>BACK</a></p></td>
-            </tr>
-            </tbody>
-        </table>
+    <br></br><br></br>
+    <div class="starter-template">
+        <div class="alert alert-danger">
+            <strong>Oh snap!</strong> To REGISTRATE you must first LOGOUT
+        </div>
+        <p class="lead"><a href='<c:url value="/logout" />'>LOGOUT?</a>
     </div>
+
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 </body>
+</html>

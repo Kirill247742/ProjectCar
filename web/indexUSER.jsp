@@ -24,7 +24,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href='<c:url value="/" />'>AutoShop.by</a>
+            <a class="navbar-brand" href='<c:url value="/" />'>AutoShop.by USER</a>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
@@ -53,19 +53,19 @@
             <img class="img-circle" src="img/sell.jpg">
             <h2>SELLER</h2>
             <p>To sell a car you need to create a user. We need your contact details so that buyers can contact you. Except fabulous buyers, no one will receive your data. Press the "I'm a new seller" below or in the menu above.</p>
-            <p><a class="btn btn-default" href='<c:url value="/createsell" />' role="button">I'm a new seller &raquo;</a></p>
+            <p><a class="btn btn-default" href='<c:url value="/registration" />' role="button">I'm a new seller &raquo;</a></p>
         </div>
         <div class="col-lg-4">
             <img class="img-circle" src="img/l.jpg">
             <h2>LOCATION</h2>
             <p>To sell a car you need to indicate your location. We need your city so that buyers can choose a place convenient for them. No one else will receive your data. Press the "New location" below or in the menu above.</p>
-            <p><a class="btn btn-default" href='<c:url value="/createloc" />' role="button">My location &raquo;</a></p>
+            <p><a class="btn btn-default" href='<c:url value="/registration" />' role="button">My location &raquo;</a></p>
         </div>
         <div class="col-lg-4">
             <img class="img-circle" src="img/c.jpg">
             <h2>CAR</h2>
             <p>To sell a car you need to specify the data of the car. We need to know this data so that buyers can choose a car to their taste. No one else will receive your data. Press the "Sell a car" below or in the menu above.</p>
-            <p><a class="btn btn-default" href='<c:url value="/createcar" />' role="button">Sell a car &raquo;</a></p>
+            <p><a class="btn btn-default" href='<c:url value="/registration" />' role="button">Sell a car &raquo;</a></p>
         </div>
     </div>
 
@@ -113,7 +113,7 @@
 
 
     <footer>
-       <p>&copy; 2019 Company, Inc. &middot; <a href="#">Back to top</a></p>
+        <p>&copy; 2019 Company, Inc. &middot; <a href="#">Back to top</a></p>
     </footer>
 
 

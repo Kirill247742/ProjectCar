@@ -37,6 +37,11 @@
                 <li><a href='<c:url value="/loc" />'>Locations</a></li>
                 <li><a href='<c:url value="/car" />'>Buy a car</a></li>
             </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href='<c:url value="/registration" />'>Registration</a></li>
+                <li><a href='<c:url value="/login" />'>Login</a></li>
+                <li><a href='<c:url value="/logout" />'>Logout</a></li>
+            </ul>
         </div>
     </div>
 </div>

@@ -18,7 +18,7 @@ public class Car implements Serializable {
 
 
 
-    public Car(){ }
+    public Car(){}
     public Car(int seller_id, int location_id, String model,
                String brand, int age, int mileage, int price, String colour){
 

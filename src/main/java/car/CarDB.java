@@ -155,7 +155,7 @@ public class CarDB {
 
 
 
-    public static ArrayList<Car> selectfiltr(String searchbrand) {
+    public static ArrayList<Car> selectfilterbrand(String searchbrand) {
 
         ArrayList<Car> cars = new ArrayList<>();
         try {
@@ -189,5 +189,102 @@ public class CarDB {
             System.out.println(ex);
         }
         return cars;
+    }
+
+    public static ArrayList<Car> selectfiltermileage(int searchmileage) {
+
+        ArrayList<Car> cars = new ArrayList<>();
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
+            try (Connection conn = DriverManager.getConnection(url, username, password)) {
+
+                String sql = "SELECT * FROM cars WHERE mileage=?";
+                try (PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
+                    preparedStatement.setInt(1,searchmileage);
+                    ResultSet resultSet = preparedStatement.executeQuery();
+                    while (resultSet.next()) {
+
+                        int car_id = resultSet.getInt(1);
+                        int seller_id = resultSet.getInt(2);
+                        int location_id = resultSet.getInt(3);
+                        String model = resultSet.getString(4);
+                        String brand = resultSet.getString(5);
+                        int age = resultSet.getInt(6);
+                        int mileage = resultSet.getInt(7);
+                        int price = resultSet.getInt(8);
+                        String colour = resultSet.getString(9);
+
+                        Car car = new Car(car_id, seller_id, location_id, model, brand, age, mileage,
+                                price, colour);
+                        cars.add(car);
+                    }
+                }
+            }
+        }
+        catch(Exception ex){
+            System.out.println(ex);
+        }
+        return cars;
+    }
+
+    public static ArrayList<Car> selectfilterprice(int searchprice) {
+
+        ArrayList<Car> cars = new ArrayList<>();
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
+            try (Connection conn = DriverManager.getConnection(url, username, password)) {
+
+                String sql = "SELECT * FROM cars WHERE price=?";
+                try (PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
+                    preparedStatement.setInt(1,searchprice);
+                    ResultSet resultSet = preparedStatement.executeQuery();
+                    while (resultSet.next()) {
+
+                        int car_id = resultSet.getInt(1);
+                        int seller_id = resultSet.getInt(2);
+                        int location_id = resultSet.getInt(3);
+                        String model = resultSet.getString(4);
+                        String brand = resultSet.getString(5);
+                        int age = resultSet.getInt(6);
+                        int mileage = resultSet.getInt(7);
+                        int price = resultSet.getInt(8);
+                        String colour = resultSet.getString(9);
+
+                        Car car = new Car(car_id, seller_id, location_id, model, brand, age, mileage,
+                                price, colour);
+                        cars.add(car);
+                    }
+                }
+            }
+        }
+        catch(Exception ex){
+            System.out.println(ex);
+        }
+        return cars;
+    }
+
+
+    public static ArrayList<AmountBrand> selectamount() {
+
+        ArrayList<AmountBrand> amount=new ArrayList<AmountBrand>();
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
+            try (Connection conn = DriverManager.getConnection(url, username, password)){
+
+                Statement statement = conn.createStatement();
+                ResultSet resultSet = statement.executeQuery("SELECT brand, count(price) FROM cars GROUP BY brand");
+                while(resultSet.next()){
+
+                    String brand = resultSet.getString(1);
+                    int count = resultSet.getInt(2);
+                    AmountBrand am = new AmountBrand(brand, count);
+                    amount.add(am);
+                }
+            }
+        }
+        catch(Exception ex){
+            System.out.println(ex);
+        }
+        return amount;
     }
 }

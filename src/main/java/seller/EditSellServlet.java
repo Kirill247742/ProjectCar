@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
-@WebServlet("/editsell")
+
 public class EditSellServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

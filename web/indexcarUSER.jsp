@@ -9,7 +9,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <style>td{text-transform:uppercase;}</style>
-    <title>Grid Template for Bootstrap</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/starter-template.css" rel="stylesheet">
 
@@ -46,34 +45,42 @@
     </div>
 </div>
 
-<br></br><br></br>
+
+<div class="container">
+    <div class="jumbotron">
+        <h1>Hello, ${login}!</h1>
+        <p>Here you can choose a car that you like</p>
+    </div>
+</div>
 <div class="container">
 
-    <h2 class="sub-header">DETAILS</h2>
+    <form class="navbar-form navbar-right" role="form" method="post">
+        <input name="search"  value="${car.brand}"type="text" class="form-control" placeholder="Search brand...">
+    </form>
+
+    <h2 class="sub-header">CARS LIST</h2>
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>NAME</th>
-                <th>GENDER</th>
-                <th>AGE</th>
-                <th>EMAIL</th>
-                <th>TELNUMBER</th>
-                <th>LOCATION</th>
+                <th>BRAND</th>
+                <th>MODEL</th>
+                <th>COLOUR</th>
+                <th>SEE DETAILS</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>${seller.name}</td>
-                <td>${seller.gender}</td>
-                <td>${seller.age}</td>
-                <td>${seller.email}</td>
-                <td>${seller.telnumber}</td>
-                <td>${location.name}</td>
-                <td><p><a href='<c:url value="/detailcar?id=${car.id}" />'>BACK</a></p></td>
-            </tr>
+            <c:forEach var="car" items="${cars}">
+                <tr>
+                    <td>${car.brand}</td>
+                    <td>${car.model}</td>
+                    <td>${car.colour}</td>
+                    <td><a href='<c:url value="/detailcar?id=${car.id}" />'>DETAILS</a></td>
+                </tr>
+            </c:forEach>
             </tbody>
         </table>
     </div>
+
 </div>
 </body>
