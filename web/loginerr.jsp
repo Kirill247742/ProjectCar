@@ -54,7 +54,13 @@
         <input name="login" type="text" class="form-control" placeholder="Login" required autofocus>
         <input name="password" type="password"class="form-control" placeholder="Password" required>
         <button class="btn btn-lg btn-primary btn-block" type="submit" value="Save">SIGN IN</button>
+        <div class="alert alert-danger">
+            <Strong>Incorrect login or password.</Strong>
+            <strong>Try again.</strong>
+        </div>
     </form>
+    <div class="starter-template">
+    </div>
     <form class="form-signin" action='<c:url value="/registration" />'>
         <h3 class="form-signin-heading">&nbsp;&nbsp;If you don't have account</h3>
         <button class="btn btn-lg btn-primary btn-block" type="submit">REG</button>

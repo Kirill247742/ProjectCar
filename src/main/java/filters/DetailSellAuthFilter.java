@@ -47,9 +47,6 @@ public class DetailSellAuthFilter implements Filter {
 
                 filterChain.doFilter(req, res);
 
-            } else {
-
-                req.getRequestDispatcher("/login.jsp").forward(req, res);
             }
 
 
@@ -69,16 +66,14 @@ public class DetailSellAuthFilter implements Filter {
 
                 req.getRequestDispatcher("/index.jsp").forward(req, res);
 
-            } else {
-
-                req.getRequestDispatcher("/login.jsp").forward(req, res);
             }
 
-        } else {
+        } else if(nonNull(login) &&
+                nonNull(password)){
 
-            req.getRequestDispatcher("/login.jsp").forward(req, res);
+            req.getRequestDispatcher("/loginerr.jsp").forward(req, res);
 
-        }
+        } else {req.getRequestDispatcher("/login.jsp").forward(req, res);}
     }
 
 

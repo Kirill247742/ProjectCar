@@ -1,0 +1,150 @@
+CREATE DATABASE `myproject` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+
+CREATE TABLE `users` (
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `login` varchar(45) NOT NULL,
+  `password` varchar(45) NOT NULL,
+  `role` varchar(45) NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO `myproject`.`users`
+(`user_id`,
+`login`,
+`password`,
+`role`)
+VALUES
+(1,
+'Kirill',
+1,
+'ADMIN');
+
+INSERT INTO `myproject`.`users`
+(`user_id`,
+`login`,
+`password`,
+`role`)
+VALUES
+(2,
+'KirillUSER',
+1,
+'USER');
+
+CREATE TABLE `locations` (
+  `location_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  PRIMARY KEY (`location_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO `myproject`.`locations`
+(`location_id`,
+`name`)
+VALUES
+(1,
+'Minsk');
+
+INSERT INTO `myproject`.`locations`
+(`location_id`,
+`name`)
+VALUES
+(2,
+'Moscow');
+
+CREATE TABLE `sellers` (
+  `seller_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `gender` varchar(6) NOT NULL,
+  `age` int(11) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `telnumber` int(15) NOT NULL,
+  PRIMARY KEY (`seller_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO `myproject`.`sellers`
+(`seller_id`,
+`name`,
+`gender`,
+`age`,
+`email`,
+`telnumber`)
+VALUES
+(1,
+'Kirill',
+'Male',
+21,
+'Kirill247742@mail.ru',
+298169893);
+
+INSERT INTO `myproject`.`sellers`
+(`seller_id`,
+`name`,
+`gender`,
+`age`,
+`email`,
+`telnumber`)
+VALUES
+(2,
+'Kris',
+'Female',
+20,
+'KrissriK@mail.ru',
+291234567);
+
+CREATE TABLE `cars` (
+  `car_id` int(11) NOT NULL AUTO_INCREMENT,
+  `seller_id` int(11) NOT NULL,
+  `location_id` int(11) NOT NULL,
+  `model` varchar(45) NOT NULL,
+  `brand` varchar(45) NOT NULL,
+  `age` int(11) NOT NULL,
+  `mileage` int(11) NOT NULL,
+  `price` int(11) NOT NULL,
+  `colour` varchar(45) NOT NULL,
+  PRIMARY KEY (`car_id`),
+  KEY `location_id_idx` (`location_id`),
+  KEY `seller_id_idx` (`seller_id`),
+  CONSTRAINT `location_id` FOREIGN KEY (`location_id`) REFERENCES `locations` (`location_id`),
+  CONSTRAINT `seller_id_car` FOREIGN KEY (`seller_id`) REFERENCES `sellers` (`seller_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO `myproject`.`cars`
+(`car_id`,
+`seller_id`,
+`location_id`,
+`model`,
+`brand`,
+`age`,
+`mileage`,
+`price`,
+`colour`)
+VALUES
+(1,
+1,
+1,
+'A8',
+'AUDI',
+2,
+200000,
+5000,
+'black');
+
+INSERT INTO `myproject`.`cars`
+(`car_id`,
+`seller_id`,
+`location_id`,
+`model`,
+`brand`,
+`age`,
+`mileage`,
+`price`,
+`colour`)
+VALUES
+(2,
+2,
+2,
+'X5',
+'BMV',
+3,
+170000,
+5400,
+'black');

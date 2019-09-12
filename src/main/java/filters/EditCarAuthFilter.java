@@ -45,11 +45,8 @@ public class EditCarAuthFilter implements Filter {
 
             } else if (role.equals("USER")) {
 
-                req.getRequestDispatcher("/requesttologout.jsp").forward(req, res);
+                filterChain.doFilter(req, res);
 
-            } else {
-
-                req.getRequestDispatcher("/login.jsp").forward(req, res);
             }
 
 
@@ -69,16 +66,14 @@ public class EditCarAuthFilter implements Filter {
 
                 req.getRequestDispatcher("/index.jsp").forward(req, res);
 
-            } else {
-
-                req.getRequestDispatcher("/login.jsp").forward(req, res);
             }
 
-        } else {
+        } else if(nonNull(login) &&
+                nonNull(password)){
 
-            req.getRequestDispatcher("/login.jsp").forward(req, res);
+            req.getRequestDispatcher("/loginerr.jsp").forward(req, res);
 
-        }
+        } else {req.getRequestDispatcher("/login.jsp").forward(req, res);}
     }
 
 
