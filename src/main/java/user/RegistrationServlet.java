@@ -36,7 +36,7 @@ public class RegistrationServlet extends HttpServlet {
             String password = request.getParameter("password");
             User user = new User(login,password);
             UserDB.insert(user);
-            getServletContext().getRequestDispatcher("/loginafterreg.jsp").forward(request, response);
+            response.sendRedirect(request.getContextPath()+"/login");
         }
         catch(Exception ex) {
 

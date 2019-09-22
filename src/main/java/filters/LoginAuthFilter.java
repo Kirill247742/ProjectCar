@@ -41,11 +41,11 @@ public class LoginAuthFilter implements Filter {
 
             if (role.equals("ADMIN")) {
 
-                filterChain.doFilter(req, res);
+                req.getRequestDispatcher("/requesttologout.jsp").forward(req, res);
 
             } else if (role.equals("USER")) {
 
-                filterChain.doFilter(req, res);
+                req.getRequestDispatcher("/requesttologout.jsp").forward(req, res);
 
             }
 
